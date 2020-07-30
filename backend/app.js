@@ -8,6 +8,8 @@ require('./dbconfig/dbconnection');
 
 
 const app = express();
+const port = process.env.PORT || 4500
+
 
 
 
@@ -15,7 +17,6 @@ app.use(cors());
 app.use(express.json());
 
 
-const port = process.env.PORT || 4500
 
 
 app.listen(port,(error)=>{
