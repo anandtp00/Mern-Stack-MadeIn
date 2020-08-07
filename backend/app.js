@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-
 require('dotenv').config();
 require('./dbconfig/dbconnection');
 
@@ -19,10 +18,10 @@ app.use(express.json());
 
 
 
-app.listen(port,(error)=>{
-    if(error){
+app.listen(port, (error) => {
+    if (error) {
         console.log(error);
-    }else{
+    } else {
         console.log(`Server up and running on ${port}`);
     }
-})
+});
