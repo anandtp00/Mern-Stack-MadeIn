@@ -15,6 +15,11 @@ const userSchema = new Schema({
         unique : true,
         minlength : 3
     },
+    password : {
+        type : String,
+        required: true,
+        minlength : 3
+    },
     mobile : {
         type : Number,
         required: true,
