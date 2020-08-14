@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './index.component.css';
+import axios from 'axios';
 
 
 export default class Register extends Component {
@@ -30,16 +32,29 @@ export default class Register extends Component {
             mobile: this.state.mobile,
         }
 
-        // register(newUser).then(res => {
-        //     this.props.history.push(`/login`)
-        // })
+        axios.post('http://localhost:4500/adduser',newUser)
+        .then(res => {
+            console.log(res.data);
+            if(res.data.msg == 'Already Exist'){
+                alert('User already exist! Please login')
+                this.props.history.push('/');
+            }
+            if(res.data.msg == 'Server Error'){
+                  alert('Server Error, Please try again later!')
+                this.props.history.push('/');
+            }
+             if(res.data.status == 'success'){
+                this.props.history.push('/home');
+            }
+        });
+        
     }
 
     render() {
         return (
-            <div className="container">
+            <div className="container form-wrapper-register">
                 <div className="row">
-                    <div className="col-md-6 mt-5 mx-auto">
+                    <div className="col-md-12 mt-5 mx-auto">
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <label htmlFor="name">Username</label>

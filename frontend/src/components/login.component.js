@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './index.component.css';
 
 
 export default class Register extends Component {
@@ -33,9 +34,9 @@ export default class Register extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container form-wrapper">
                 <div className="row">
-                    <div className="col-md-6 mt-5 mx-auto">
+                    <div className="col-md-12 mt-5 mx-auto">
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <label htmlFor="email">Email address</label>
